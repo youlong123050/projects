@@ -31,29 +31,50 @@ export default {
 
 //es6 面向对象
 {
-  class person{
-    constructor (id){
-      this.id=id;
-      console.log(id)
+  (function(root){
+    let a=Symbol ();
+    class person{
+      static staticName="人";
+      constructor (id){
+        this[a]="自己可用"
+        this.id=id;
+        console.log(id)
+      }
+      say(str=this.str){
+        console.log(this[a]);
+        console.log(this.id+"说了："+str);
+      }
     }
-    say(str=this.str){
-      console.log(this.id+"说了："+str)
-    }
-  }
 
-  class worker extends person{
-    constructor(){
-      super("老师");
-      this.str="都过来吧";
+    class worker extends person{
+      constructor(){
+        super("老师");
+        this.str="都过来吧";
+      }
+      //静态方法
+      static normal(text){
+        console.log(text)
+      }
+      nameSay(name,str=this.str){
+        console.log(name+this.id+"说了:"+str)
+      }
     }
-    nameSay(name,str){
-      console.log(name+this.id+"说了:"+this.str)
-    }
-  }
+    root.person=person;
+    root.worker=worker;
+  })(window);
+  
 
+  worker.normal("不绕弯子我直说"); //无需实例化即可调用静态方法
+  console.log(worker.staticName); //无需实例化即可调用静态属性
+  try {
+    console.log(zhangsan[a]);//私有变量无法调用，会报错
+  } catch (error) {
+    console.log(error)
+  }
   var zhangsan=new worker();
-  zhangsan.say();
-
+  zhangsan.say(); //继承自person类的方法
+  zhangsan.nameSay("李铁柱")
+  zhangsan.nameSay("李铁柱","那你就不用过来了");
 }
 </script>
 
