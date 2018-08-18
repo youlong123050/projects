@@ -28,6 +28,33 @@ export default {
     }
   }
 }
+
+//es6 面向对象
+{
+  class person{
+    constructor (id){
+      this.id=id;
+      console.log(id)
+    }
+    say(str=this.str){
+      console.log(this.id+"说了："+str)
+    }
+  }
+
+  class worker extends person{
+    constructor(){
+      super("老师");
+      this.str="都过来吧";
+    }
+    nameSay(name,str){
+      console.log(name+this.id+"说了:"+this.str)
+    }
+  }
+
+  var zhangsan=new worker();
+  zhangsan.say();
+
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
