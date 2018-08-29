@@ -4,6 +4,7 @@ import Router from 'vue-router'
 //会员中心
 import userHome from '@/components/userCenter/index'
 import shopOrderList from '@/components/userCenter/shopOrderList'
+import shopOrderDetail from '@/components/userCenter/shopOrderDetail'
 import yuyueList from '@/components/userCenter/yuyueList'
 import tijianList from '@/components/userCenter/tijianList'
 import hyCard from '@/components/userCenter/hyCard'
@@ -27,6 +28,13 @@ const rounter= new Router({
 	      	title: '商城订单列表'
 	      },
 				component: shopOrderList
+			},
+			{
+	      path: '/user/shop/:id',
+	      meta: {
+	      	title: '商城订单详情'
+	      },
+				component: shopOrderDetail
 			},
 			{
 	      path: '/user/yuyue',

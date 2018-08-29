@@ -1,5 +1,5 @@
 <template>
-    <div id="orderList">
+    <div class="userCenter" id="orderList">
         <van-tabs v-model="active" sticky>
             <van-tab title="全部">
                 <div class="orderItem" v-for="order in orders" :key="order.id">
@@ -20,7 +20,7 @@
                     <div class="orderBottom">
                         <em>共2件商品</em>
                         <em>消耗积分：<font class="red">30000</font></em>
-                        <van-button size="mini" type="danger" plain>查看详情</van-button>
+                        <van-button size="mini" type="danger" tag="a" :href="'shop/'+order.id" plain>查看详情</van-button>
                     </div>
                 </div>
             </van-tab>
@@ -124,7 +124,7 @@ export default {
 }
 </script>
 <style scoped>
-.orderList{background: #f0f0f0;}
+#orderList{background: #f0f0f0;}
 .orderItem{background: #fff;margin-bottom: 2vh;padding:0 2vh;display: flex;flex-direction: column;font-size: 3.5vmin;}
 .header{display: flex;align-items: center;height: 6vh;}
 .orderId{flex: 2}
