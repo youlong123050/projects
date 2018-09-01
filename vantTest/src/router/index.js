@@ -2,20 +2,29 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 //会员中心
-import userHome from '@/components/userCenter/index'
-import shopOrderList from '@/components/userCenter/shopOrderList'
-import shopOrderDetail from '@/components/userCenter/shopOrderDetail'
-import yuyueList from '@/components/userCenter/yuyueList'
-import tijianList from '@/components/userCenter/tijianList'
-import hyCard from '@/components/userCenter/hyCard'
+import userHome from '@/pages/userCenter/index'
+import shopOrderList from '@/pages/userCenter/shopOrderList'
+import shopOrderDetail from '@/pages/userCenter/shopOrderDetail'
+import yuyueList from '@/pages/userCenter/yuyueList'
+import tijianList from '@/pages/userCenter/tijianList'
+import hyCard from '@/pages/userCenter/hyCard'
 
+//积分商城
+import shopIndex from '@/pages/shop/index'
 
 Vue.use(Router)
 
 const rounter= new Router({
 	mode: 'history',
   	routes: [
-	    {
+			{
+	      path: '/',
+	      meta: {
+	      	title: '积分商城'
+	      },
+				component: shopIndex
+			},
+			{
 	      path: '/user',
 	      meta: {
 	      	title: '会员中心'
